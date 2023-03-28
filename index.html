@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="Viewport" content="widht=device-widht, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet" />
+      <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="box">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+  </div>
+  <header>
+    <div class="asa">
+        <h1>Remove Background 18329</h1>
+        <h2>Lepaskan Bebanmu Hari Jadi Lebih Indah</h2>
+      </div>
+    </header>
+
+
+        <main>
+          <form id="form">
+            <div class="main-content">
+              <span class="title">Taro potonya di bawah <u>sebelum bebanmu bertambah...</u></span>
+              <span class="or">Gass...</span>
+              <div class="context">
+                <input type="file" id="input" />
+                <button type="submit" id="button">Lepas :P </button>
+              </div>
+            </div>
+          </form>
+          <img src="" id="result" alt="" />
+          
+        </main>
+    <footer>
+
+    </footer>
+        <script>
+          const apiKey = "TAXKnNn6DDLk6uAYCRmsyKn6";
+    
+          const form = document.getElementById("form");
+          const input = document.getElementById("input");
+          const button = document.getElementById("button");
+          const result = document.getElementById("result");
+    
+          form.addEventListener("submit", (e) => {
+            e.preventDefault();
+    
+            const formData = new FormData();
+            formData.append("image_file", input.files[0]);
+    
+            button.disabled = true;
+            button.textContent = "Melepaskan...";
+    
+            fetch("https://api.remove.bg/v1.0/removebg", {
+              method: "post",
+              headers: {
+                "X-Api-Key": apiKey,
+              },
+              body: formData,
+            })
+              .then((res) => res.blob())
+              .then((data) => {
+                const url = URL.createObjectURL(data);
+                result.src = url;
+    
+                button.disabled = false;
+                button.textContent = "Remove";
+              });
+          });
+        </script>
+      </body>
+    </html>
+        </html>
+  
+  
